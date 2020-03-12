@@ -15,19 +15,25 @@ public class Player {
 		return playerToString;
 	}
 	
-	public boolean equals(Player o){
-		int equal = 0;
-		if (name.equals(o.name)) {
-			equal +=1;
-		}
-		if (age == o.age) {
-			equal +=1;
-		}
-		if (sport == o.sport) {
-			equal +=1;
-		}
-		if (equal == 3) {
-			return true;
+	public boolean equals (Object o) {
+		Player p = (Player)o;
+		if (o instanceof Player) {
+			int equal = 0;
+			if (name.equals(p.name)) {
+				equal +=1;
+			}
+			if (age == p.age) {
+				equal +=1;
+			}
+			if (sport == p.sport) {
+				equal +=1;
+			}
+			if (equal == 3) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return false;

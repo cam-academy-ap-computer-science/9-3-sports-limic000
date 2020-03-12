@@ -15,13 +15,33 @@ public class BasketballPlayer extends Player{
 		return super.toString() + " " + teamNum + " " + position + " " + yearsPlayed;
 	}
 	
-	public boolean equals(BasketballPlayer o) {
-		if (super.equals(o) == false) {
-			return false;
+	public boolean equals(Object o) {
+		boolean equalToEachOther = false;
+		BasketballPlayer p = (BasketballPlayer)o;
+		if (p instanceof BasketballPlayer) {
+			if (super.equals(o) == false) {
+				equalToEachOther = false;;
+			}
+			if (super.equals(o) != false) {
+				int equal = 0;
+				if (teamNum == p.teamNum) {
+					equal++;
+				}
+				if (position.equals(p.position)) {
+					equal++;
+				}
+				if (yearsPlayed == p.yearsPlayed) {
+					equal++;
+				}
+				if(equal == 3) {
+					equalToEachOther = true;
+				}
+				else {
+					equalToEachOther = false;
+				}
+			}
 		}
-		if (super.equals(o) != false) {
-			int equal = super.equal;
-		}
+		return equalToEachOther; 
 		
 	}
 }
